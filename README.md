@@ -8,8 +8,6 @@ This project demonstrates the modernization of a retail sales data pipeline on M
 
 ## Architecture
 
-## Architecture
-
 The solution implements a Medallion Architecture pattern leveraging key Azure services:
 
 ```mermaid
@@ -21,4 +19,3 @@ graph TD
     E --> F(Azure Data Lake Storage Gen2 - Gold Layer)
     F --> G[Azure Synapse Analytics - Serverless SQL Pool (Views)]
     G --> H[Power BI Desktop & Service (Dashboard)]
-
