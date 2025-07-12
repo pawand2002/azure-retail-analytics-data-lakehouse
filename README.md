@@ -10,4 +10,3 @@
 [Azure Synapse Serverless SQL Pool – Gold Zone Views]
         ↓
 [Power BI – Sales Insights Dashboard]
-```
