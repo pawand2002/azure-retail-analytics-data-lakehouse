@@ -5,6 +5,9 @@ An end-to-end Retail Sales Analytics project built on Azure, showcasing modern d
 This project demonstrates how raw retail sales data can be ingested, transformed, analyzed, and visualized using a scalable cloud-based architecture.
 
 ---
+## 🏗 Architecture Diagram
+
+<img width="322" height="446" alt="image" src="https://github.com/user-attachments/assets/5dfebc22-563b-4394-820e-9e4a5a88444e" />
 
 ## 🚀 Project Architecture
 
