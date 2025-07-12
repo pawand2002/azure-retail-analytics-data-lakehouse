@@ -75,10 +75,7 @@ Power BI dashboards built to display KPIs like Total Sales, Profit Margin, Regio
 
 <img width="1420" height="777" alt="powerbi_dashboard_screenshot" src="https://github.com/user-attachments/assets/d37bcd30-efb2-41bd-b1c9-88a8b0575f56" />
 
-
-
-
-**Layers Explained:**
+# Layers Explained:
 
 * **Bronze Layer (Raw Data Lake):** Stores raw, immutable sales data as ingested from the source (CSV). This layer acts as a landing zone.
 * **Silver Layer (Cleaned & Conformed Data Lake):** Data from the Bronze layer is cleaned, validated, and transformed into a structured, conformed format (Parquet). This layer is ready for further aggregation and feature engineering.
