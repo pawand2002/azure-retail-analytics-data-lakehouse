@@ -50,6 +50,32 @@ Data Source: Retail transactions CSV file (uploaded manually or automated).
 
 Users: Business analysts, operations teams, and sales managers.
 
+# Layers Explained:
+
+* **Bronze Layer (Raw Data Lake):** Stores raw, immutable sales data as ingested from the source (CSV). This layer acts as a landing zone.
+* **Silver Layer (Cleaned & Conformed Data Lake):** Data from the Bronze layer is cleaned, validated, and transformed into a structured, conformed format (Parquet). This layer is ready for further aggregation and feature engineering.
+* **Gold Layer (Business-Ready Data Lake):** Aggregated and highly optimized data (Parquet) for direct consumption by business intelligence tools and analytical applications. This layer contains key business metrics like daily total sales, unique customers, and transaction counts.
+
+## Azure Services Used
+
+* **Azure Data Lake Storage Gen2 (ADLS Gen2):** Scalable and secure data lake for storing data in various formats across all layers (Bronze, Silver, Gold).
+* **Azure Data Factory (ADF):** Cloud-based ETL/ELT service used for orchestrating the data movement and performing complex data transformations via Mapping Data Flows.
+* **Azure Synapse Analytics (Serverless SQL Pool):** Provides a SQL interface over the data in ADLS Gen2, enabling ad-hoc querying and creating logical views (Gold Layer) without provisioning dedicated resources.
+* **Power BI:** Business intelligence tool for creating interactive dashboards and reports, consuming data directly from the Synapse Serverless SQL Pool view (DirectQuery).
+
+## Key Learnings & Demonstrated Skills
+
+This project was a hands-on exercise in transitioning to modern cloud data platforms, specifically on Azure. It highlights my ability to:
+
+* **Architect Cloud-Native Data Solutions:** Designed and implemented a robust Medallion Architecture, a best practice for data lakes.
+* **Master Modern ETL/ELT:** Gained in-depth proficiency in Azure Data Factory's Data Flows for complex data transformations and pipeline orchestration.
+* **Leverage Data Lakehouse Capabilities:** Successfully integrated ADLS Gen2 with Azure Synapse Analytics to provide a flexible and performant analytical layer directly on the data lake.
+* **Ensure Data Quality & Integrity:** Implemented data cleaning and aggregation steps to deliver high-quality, business-ready data.
+* **Integrate BI Tools:** Connected Power BI to a Synapse view using DirectQuery, showcasing real-time analytical capabilities.
+* **Problem-Solving & Debugging:** Successfully navigated and resolved complex data type inference, authentication, and pathing challenges across different Azure services.
+* **Multi-Cloud Versatility:** This project complements my existing expertise in GCP, demonstrating my adaptability and capability to design and implement robust data solutions across major cloud platforms. It showcases my commitment to continuous learning and expanding my cloud data engineering skillset.
+
+
 ## 🔄 Data Flow Pipeline
 #  Ingestion: 
 Python scripts upload raw .csv files to Azure Data Lake (Bronze layer).
@@ -117,31 +143,6 @@ This project is part of my learning journey to transition into modern cloud-base
 
 📫 Let's Connect
 If you found this useful, feel free to connect with me on LinkedIn or ⭐️ this repo!
-
-# Layers Explained:
-
-* **Bronze Layer (Raw Data Lake):** Stores raw, immutable sales data as ingested from the source (CSV). This layer acts as a landing zone.
-* **Silver Layer (Cleaned & Conformed Data Lake):** Data from the Bronze layer is cleaned, validated, and transformed into a structured, conformed format (Parquet). This layer is ready for further aggregation and feature engineering.
-* **Gold Layer (Business-Ready Data Lake):** Aggregated and highly optimized data (Parquet) for direct consumption by business intelligence tools and analytical applications. This layer contains key business metrics like daily total sales, unique customers, and transaction counts.
-
-## Azure Services Used
-
-* **Azure Data Lake Storage Gen2 (ADLS Gen2):** Scalable and secure data lake for storing data in various formats across all layers (Bronze, Silver, Gold).
-* **Azure Data Factory (ADF):** Cloud-based ETL/ELT service used for orchestrating the data movement and performing complex data transformations via Mapping Data Flows.
-* **Azure Synapse Analytics (Serverless SQL Pool):** Provides a SQL interface over the data in ADLS Gen2, enabling ad-hoc querying and creating logical views (Gold Layer) without provisioning dedicated resources.
-* **Power BI:** Business intelligence tool for creating interactive dashboards and reports, consuming data directly from the Synapse Serverless SQL Pool view (DirectQuery).
-
-## Key Learnings & Demonstrated Skills
-
-This project was a hands-on exercise in transitioning to modern cloud data platforms, specifically on Azure. It highlights my ability to:
-
-* **Architect Cloud-Native Data Solutions:** Designed and implemented a robust Medallion Architecture, a best practice for data lakes.
-* **Master Modern ETL/ELT:** Gained in-depth proficiency in Azure Data Factory's Data Flows for complex data transformations and pipeline orchestration.
-* **Leverage Data Lakehouse Capabilities:** Successfully integrated ADLS Gen2 with Azure Synapse Analytics to provide a flexible and performant analytical layer directly on the data lake.
-* **Ensure Data Quality & Integrity:** Implemented data cleaning and aggregation steps to deliver high-quality, business-ready data.
-* **Integrate BI Tools:** Connected Power BI to a Synapse view using DirectQuery, showcasing real-time analytical capabilities.
-* **Problem-Solving & Debugging:** Successfully navigated and resolved complex data type inference, authentication, and pathing challenges across different Azure services.
-* **Multi-Cloud Versatility:** This project complements my existing expertise in GCP, demonstrating my adaptability and capability to design and implement robust data solutions across major cloud platforms. It showcases my commitment to continuous learning and expanding my cloud data engineering skillset.
 
 
 
