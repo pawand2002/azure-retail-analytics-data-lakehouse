@@ -6,25 +6,128 @@ This project demonstrates the modernization of a retail sales data pipeline on M
 
 ## Architecture
 
-The solution implements a Medallion Architecture pattern leveraging key Azure services. Data flows through distinct layers as depicted below:
+Project Architecture Diagram
+This diagram outlines the end-to-end data pipeline, from raw data ingestion to final reporting, following a Medallion Architecture pattern.
 
-+-------------------+      +-----------------------------------+      +-----------------------------------+
-| Raw Sales Data    |      | Azure Data Lake Storage Gen2      |      | Azure Data Factory                |
-| (Local Python)    +----->+ (Bronze Layer - Raw CSV)        +----->+ (Data Flow: Bronze to Silver)   +
-+-------------------+      +-----------------------------------+      +-----------------------------------+
-|
-V
-+-----------------------------------+      +-----------------------------------+      +-----------------------------------+
-| Azure Data Lake Storage Gen2      |      | Azure Data Factory                |      | Azure Data Lake Storage Gen2      |
-| (Silver Layer - Cleaned Parquet)  +<-----+ (Data Flow: Silver to Gold)     +<-----+ (Gold Layer - Aggregated Parquet) |
-+-----------------------------------+      +-----------------------------------+      +-----------------------------------+
-|
-V
-+---------------------------------------------------+      +-----------------------------------+
-| Azure Synapse Analytics - Serverless SQL Pool     |      | Power BI Desktop & Service        |
-| (Views over Gold Layer)                           +----->+ (Interactive Dashboard)         |
-+---------------------------------------------------+      +-----------------------------------+
++---------------------+
+|                     |
+|  Raw Sales Data     |
+|  (Local Python)     |
+|                     |
++----------+----------+
+           |
+           | Ingest (CSV)
+           V
++---------------------+
+|                     |
+|  Azure Data Lake    |
+|  Storage Gen2       |
+|  (Bronze Layer)     |
+|  salesdata/bronze/  |
++----------+----------+
+           |
+           | Data Flow: Bronze to Silver
+           | (Cleaning, Schema Enforcement)
+           V
++---------------------+
+|                     |
+|  Azure Data Lake    |
+|  Storage Gen2       |
+|  (Silver Layer)     |
+|  salesdata/silver/  |
++----------+----------+
+           |
+           | Data Flow: Silver to Gold
+           | (Aggregation, Business Logic)
+           V
++---------------------+
+|                     |
+|  Azure Data Lake    |
+|  Storage Gen2       |
+|  (Gold Layer)       |
+|  salesdata/gold/    |
++----------+----------+
+           |
+           | Query via Views
+           V
++---------------------+
+|                     |
+|  Azure Synapse      |
+|  Analytics          |
+|  (Serverless SQL    |
+|  Pool - Views)      |
++----------+----------+
+           |
+           | DirectQuery
+           V
++---------------------+
+|                     |
+|  Power BI           |
+|  (Dashboard &       |
+|  Reporting)         |
+|                     |
++---------------------+
 
+Explanation of Components and Data Flow:
+Raw Sales Data (Local Python):
+
+Role: The starting point of the pipeline. A Python script generates synthetic raw sales data in CSV format.
+
+Flow: This raw CSV data is the initial input to the data lake.
+
+Azure Data Lake Storage Gen2 (Bronze Layer):
+
+Role: The landing zone for all raw, immutable data. Data is stored as-is, preserving its original state.
+
+Location: abfss://salesdata@youradlgen2.dfs.core.windows.net/bronze/
+
+Flow: Raw CSV files are uploaded here.
+
+Azure Data Factory (Data Flow: Bronze to Silver Transformation):
+
+Role: An ETL/ELT service responsible for orchestrating data movement and performing transformations. The first Data Flow reads raw data from the Bronze layer.
+
+Transformation: It cleans the data, enforces schema (e.g., correct data types, handling missing values), and converts it into a more optimized format (Parquet).
+
+Flow: Processes data from Bronze and writes it to Silver.
+
+Azure Data Lake Storage Gen2 (Silver Layer):
+
+Role: Stores cleaned, conformed, and structured data. This layer is reliable and ready for further processing or feature engineering.
+
+Location: abfss://salesdata@youradlgen2.dfs.core.windows.net/silver/
+
+Flow: Receives processed Parquet files from the Bronze-to-Silver Data Flow.
+
+Azure Data Factory (Data Flow: Silver to Gold Aggregation):
+
+Role: The second Data Flow in ADF reads the cleaned data from the Silver layer.
+
+Transformation: It applies business logic, performs aggregations (e.g., calculating daily total sales, unique customers, total transactions), and prepares the data for direct analytical consumption.
+
+Flow: Processes data from Silver and writes the aggregated results to Gold.
+
+Azure Data Lake Storage Gen2 (Gold Layer):
+
+Role: The curated, business-ready layer. Data here is highly optimized for performance and direct consumption by reporting tools.
+
+Location: abfss://salesdata@youradlgen2.dfs.core.windows.net/gold/
+
+Flow: Receives aggregated Parquet files from the Silver-to-Gold Data Flow.
+
+Azure Synapse Analytics (Serverless SQL Pool - Views):
+
+Role: Provides a flexible, on-demand SQL interface over the data stored in ADLS Gen2. It allows querying the Parquet files in the Gold layer using standard T-SQL, without managing dedicated infrastructure. Logical views are created here (e.g., gold_daily_sales_summary) to simplify data access.
+
+Flow: Queries the Gold layer data directly from ADLS Gen2.
+
+Power BI (Dashboard & Reporting):
+
+Role: The final visualization layer. Power BI connects to the Synapse Serverless SQL Pool views using DirectQuery mode.
+
+Flow: Retrieves aggregated data from Synapse views in real-time to create interactive dashboards and reports for business users.
+
+This architecture demonstrates a modern data lakehouse approach, combining the scalability and flexibility of a data lake with the structure and query capabilities of a data warehouse.
 
 **Layers Explained:**
 
