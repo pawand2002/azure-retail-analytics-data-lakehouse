@@ -14,3 +14,23 @@ graph TD
     B --> C[Azure Data Lake - Bronze/Silver/Gold]
     C --> D[Azure Synapse Analytics]
     D --> E[Power BI Reports]
+
+🧱 Tech Stack
+Component	Technology
+Language	Python
+Orchestration	Azure Data Factory
+Storage	Azure Data Lake Gen2
+Data Processing	Azure Synapse Analytics
+Visualization	Power BI
+
+📂 Project Structure
+bash
+retail-sales_analytics/
+│
+├── data/                       # Raw CSV files (input datasets)
+├── python_ingestion/          # Python scripts for initial data push
+├── adf_pipelines/             # JSON exports of ADF pipelines
+├── synapse_queries/           # SQL scripts for DDL + transformations
+├── powerbi_reports/           # PBIX files / screenshots
+├── README.md
+└── architecture.png           # Architecture Diagram
