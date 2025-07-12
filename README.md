@@ -76,6 +76,48 @@ Power BI dashboards built to display KPIs like Total Sales, Profit Margin, Regio
 
 <img width="1420" height="777" alt="powerbi_dashboard_screenshot" src="https://github.com/user-attachments/assets/d37bcd30-efb2-41bd-b1c9-88a8b0575f56" />
 
+🧪 Key Features
+Parameterized folder paths in ADF for dynamic pipeline execution
+
+Derived column handling (e.g., Profit = Sales - Cost)
+
+Incremental load pattern using metadata tracking (optional)
+
+Power BI report with interactive slicers and drill-down
+
+🧠 Learnings & Highlights
+Practical experience working with Azure’s modern data stack
+
+Designed a medallion architecture (Bronze/Silver/Gold) on Data Lake
+
+Built reusable and scalable data pipelines in ADF
+
+Integrated Power BI for actionable insights
+
+📌 Prerequisites
+Azure Subscription
+
+Azure Data Factory instance
+
+Azure Data Lake Gen2 and Synapse workspace
+
+Power BI Desktop for dashboard creation
+
+🧰 Tools Used
+Visual Studio Code / Azure Portal
+
+Azure Storage Explorer
+
+Power BI Desktop
+
+Python 3.x
+
+🙌 Acknowledgements
+This project is part of my learning journey to transition into modern cloud-based data architecture roles, building hands-on expertise with Microsoft Azure ecosystem.
+
+📫 Let's Connect
+If you found this useful, feel free to connect with me on LinkedIn or ⭐️ this repo!
+
 # Layers Explained:
 
 * **Bronze Layer (Raw Data Lake):** Stores raw, immutable sales data as ingested from the source (CSV). This layer acts as a landing zone.
@@ -100,6 +142,8 @@ This project was a hands-on exercise in transitioning to modern cloud data platf
 * **Integrate BI Tools:** Connected Power BI to a Synapse view using DirectQuery, showcasing real-time analytical capabilities.
 * **Problem-Solving & Debugging:** Successfully navigated and resolved complex data type inference, authentication, and pathing challenges across different Azure services.
 * **Multi-Cloud Versatility:** This project complements my existing expertise in GCP, demonstrating my adaptability and capability to design and implement robust data solutions across major cloud platforms. It showcases my commitment to continuous learning and expanding my cloud data engineering skillset.
+
+
 
 ## Getting Started: Deploying and Running the Project
 
