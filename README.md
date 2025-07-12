@@ -76,7 +76,7 @@ Power BI dashboards built to display KPIs like Total Sales, Profit Margin, Regio
 
 <img width="1420" height="777" alt="powerbi_dashboard_screenshot" src="https://github.com/user-attachments/assets/d37bcd30-efb2-41bd-b1c9-88a8b0575f56" />
 
-🧪 Key Features
+# 🧪 Key Features
 Parameterized folder paths in ADF for dynamic pipeline execution
 
 Derived column handling (e.g., Profit = Sales - Cost)
@@ -85,7 +85,7 @@ Incremental load pattern using metadata tracking (optional)
 
 Power BI report with interactive slicers and drill-down
 
-🧠 Learnings & Highlights
+# 🧠 Learnings & Highlights
 Practical experience working with Azure’s modern data stack
 
 Designed a medallion architecture (Bronze/Silver/Gold) on Data Lake
@@ -94,7 +94,7 @@ Built reusable and scalable data pipelines in ADF
 
 Integrated Power BI for actionable insights
 
-📌 Prerequisites
+# 📌 Prerequisites
 Azure Subscription
 
 Azure Data Factory instance
@@ -103,7 +103,7 @@ Azure Data Lake Gen2 and Synapse workspace
 
 Power BI Desktop for dashboard creation
 
-🧰 Tools Used
+# 🧰 Tools Used
 Visual Studio Code / Azure Portal
 
 Azure Storage Explorer
@@ -112,7 +112,7 @@ Power BI Desktop
 
 Python 3.x
 
-🙌 Acknowledgements
+# 🙌 Acknowledgements
 This project is part of my learning journey to transition into modern cloud-based data architecture roles, building hands-on expertise with Microsoft Azure ecosystem.
 
 📫 Let's Connect
