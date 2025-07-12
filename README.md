@@ -17,15 +17,17 @@ graph TD
 ```
 
 🧱 Tech Stack
+```
 Component	Technology
 Language	Python
 Orchestration	Azure Data Factory
 Storage	Azure Data Lake Gen2
 Data Processing	Azure Synapse Analytics
 Visualization	Power BI
+```
 
 📂 Project Structure
-bash
+```
 retail-sales_analytics/
 │
 ├── data/                       # Raw CSV files (input datasets)
@@ -35,3 +37,4 @@ retail-sales_analytics/
 ├── powerbi_reports/           # PBIX files / screenshots
 ├── README.md
 └── architecture.png           # Architecture Diagram
+```
