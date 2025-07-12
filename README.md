@@ -20,27 +20,27 @@ graph TD
 ```
 
 # 🧰 Tech Stack
-```
 | Layer | Technology | 
 | Data Source | Synthetic data via Python | 
 | Storage | Azure Data Lake Storage Gen2 (ADLS) | 
 | Orchestration | Azure Data Factory (ADF) | 
 | Modeling | Azure Synapse Analytics | 
 | Visualization | Power BI | 
-```
 
-# 📂 Project Structure
-```
-retail-sales_analytics/
-│
-├── data/                       # Raw CSV files (input datasets)
-├── python_ingestion/          # Python scripts for initial data push
-├── adf_pipelines/             # JSON exports of ADF pipelines
-├── synapse_queries/           # SQL scripts for DDL + transformations
-├── powerbi_reports/           # PBIX files / screenshots
-├── README.md
-└── architecture.png           # Architecture Diagram
-```
+
+
+# 🗂️ Dataset Overview
+- Generator Script: generate_sales_data.py
+- Format: CSV + optional Parquet
+- Fields: TransactionID, CustomerID, ProductID, Quantity, Price, TransactionDate, Region
+- Scope: ~6 months of synthetic retail activity across regions and products
+
+# 🎯 Core Objectives
+- Build reusable ETL flows using ADF pipelines
+- Ingest and transform zone-based data in ADLS Gen2
+- Apply Kimball-style dimensional modeling via Synapse Serverless SQL
+- Create dynamic Power BI dashboards for sales insights
+- Explore parameterized views, SCD types, and semantic layers
 
 # 📈 Business Use Case
 Objective: Analyze retail sales data to uncover trends, high-performing regions/products, and forecast revenue.
