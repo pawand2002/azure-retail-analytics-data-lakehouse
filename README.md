@@ -21,7 +21,7 @@ graph TD
 
 # 🧰 Tech Stack
 | Layer | Technology |
-----------------------
+|-------|--------------|
 | Data Source | Synthetic data via Python | 
 | Storage | Azure Data Lake Storage Gen2 (ADLS) | 
 | Orchestration | Azure Data Factory (ADF) | 
