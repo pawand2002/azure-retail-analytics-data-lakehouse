@@ -45,7 +45,7 @@ retail-sales_analytics/
 # 📈 Business Use Case
 ** Objective: Analyze retail sales data to uncover trends, high-performing regions/products, and forecast revenue.
 
-Data Source: Retail transactions CSV file (uploaded manually or automated).
+** Data Source: Retail transactions CSV file (uploaded manually or automated).
 
 Users: Business analysts, operations teams, and sales managers.
 
@@ -53,7 +53,7 @@ Users: Business analysts, operations teams, and sales managers.
 #  Ingestion: 
 Python scripts upload raw .csv files to Azure Data Lake (Bronze layer).
 
-## Orchestration via ADF triggers.
+# Orchestration via ADF triggers.
 
 # Transformation:
 
@@ -70,6 +70,10 @@ Views and aggregations created for Power BI consumption.
 # Reporting:
 
 Power BI dashboards built to display KPIs like Total Sales, Profit Margin, Regional Revenue, and Product Category Trends.
+
+# 📊 Sample Dashboards
+
+<img width="1420" height="777" alt="powerbi_dashboard_screenshot" src="https://github.com/user-attachments/assets/d37bcd30-efb2-41bd-b1c9-88a8b0575f56" />
 
 **Layers Explained:**
 
