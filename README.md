@@ -1,3 +1,4 @@
+```
 [Python Data Generator]
         ↓
 [ADLS Gen2 – Bronze Zone]
@@ -9,3 +10,4 @@
 [Azure Synapse Serverless SQL Pool – Gold Zone Views]
         ↓
 [Power BI – Sales Insights Dashboard]
+```
