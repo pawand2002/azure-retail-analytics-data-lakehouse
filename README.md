@@ -14,6 +14,7 @@ graph TD
     B --> C[Azure Data Lake - Bronze/Silver/Gold]
     C --> D[Azure Synapse Analytics]
     D --> E[Power BI Reports]
+```
 
 🧱 Tech Stack
 Component	Technology
