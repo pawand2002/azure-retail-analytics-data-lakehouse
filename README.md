@@ -7,7 +7,8 @@ This project demonstrates how raw retail sales data can be ingested, transformed
 ---
 #  🏗 Architecture Diagram
 
-<img width="322" height="446" alt="image" src="https://github.com/user-attachments/assets/5dfebc22-563b-4394-820e-9e4a5a88444e" />
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/a6ae0b40-b918-491c-82f5-fa710b08482f" />
+
 
 # 🚀 Project Architecture
 
@@ -100,7 +101,7 @@ Power BI dashboards built to display KPIs like Total Sales, Profit Margin, Regio
 
 # 📊 Sample Dashboards
 
-<img width="1420" height="777" alt="powerbi_dashboard_screenshot" src="https://github.com/user-attachments/assets/d37bcd30-efb2-41bd-b1c9-88a8b0575f56" />
+<img width="1411" height="773" alt="image" src="https://github.com/user-attachments/assets/297f241e-7777-4e83-b7b2-26944aa177d4" />
 
 # 🧪 Key Features
 Parameterized folder paths in ADF for dynamic pipeline execution
