@@ -43,9 +43,9 @@ retail-sales_analytics/
 ```
 
 # 📈 Business Use Case
-** Objective: Analyze retail sales data to uncover trends, high-performing regions/products, and forecast revenue.
+## Objective: Analyze retail sales data to uncover trends, high-performing regions/products, and forecast revenue.
 
-** Data Source: Retail transactions CSV file (uploaded manually or automated).
+## Data Source: Retail transactions CSV file (uploaded manually or automated).
 
 Users: Business analysts, operations teams, and sales managers.
 
