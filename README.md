@@ -19,14 +19,14 @@ graph TD
     D --> E[Power BI Reports]
 ```
 
-# 🧱 Tech Stack
+# 🧰 Tech Stack
 ```
-Component	Technology
-Language	Python
-Orchestration	Azure Data Factory
-Storage	Azure Data Lake Gen2
-Data Processing	Azure Synapse Analytics
-Visualization	Power BI
+| Layer | Technology | 
+| Data Source | Synthetic data via Python | 
+| Storage | Azure Data Lake Storage Gen2 (ADLS) | 
+| Orchestration | Azure Data Factory (ADF) | 
+| Modeling | Azure Synapse Analytics | 
+| Visualization | Power BI | 
 ```
 
 # 📂 Project Structure
