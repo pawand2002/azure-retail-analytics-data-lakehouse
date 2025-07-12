@@ -39,33 +39,32 @@ retail-sales_analytics/
 └── architecture.png           # Architecture Diagram
 ```
 
-📈 Business Use Case
+## 📈 Business Use Case
 Objective: Analyze retail sales data to uncover trends, high-performing regions/products, and forecast revenue.
 
 Data Source: Retail transactions CSV file (uploaded manually or automated).
 
 Users: Business analysts, operations teams, and sales managers.
 
-🔄 Data Flow Pipeline
-Ingestion:
-
+## 🔄 Data Flow Pipeline
+#  Ingestion: 
 Python scripts upload raw .csv files to Azure Data Lake (Bronze layer).
 
-Orchestration via ADF triggers.
+## Orchestration via ADF triggers.
 
-Transformation:
+# Transformation:
 
 ADF Mapping Data Flows process and clean data from Bronze → Silver → Gold layers.
 
-Derived columns such as Profit, OrderMonth, CategorySales.
+Derived columns such as TotalSales,UniqueCustomersCounts, TotalTransactions.
 
-Modeling:
+# Modeling:
 
 Data from Gold layer is loaded into Azure Synapse for analytics modeling.
 
 Views and aggregations created for Power BI consumption.
 
-Reporting:
+# Reporting:
 
 Power BI dashboards built to display KPIs like Total Sales, Profit Margin, Regional Revenue, and Product Category Trends.
 
