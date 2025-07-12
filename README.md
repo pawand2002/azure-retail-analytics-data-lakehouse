@@ -1,55 +1,67 @@
-Azure Retail Sales Data Analytics: Modernizing ETL with a Data Lakehouse Approach
-Project Overview
+🌩️ Azure Retail Sales Data Analytics: Modernizing ETL with a Data Lakehouse Approach
+## Project Overview
 This project demonstrates the modernization of a retail sales data pipeline on Microsoft Azure, showcasing a shift from traditional data warehousing and ETL methods to a scalable, cost-effective, and cloud-native data lakehouse architecture. It covers end-to-end batch ingestion, multi-layered data transformations (Bronze, Silver, Gold), and analytical reporting.
 
-Architecture
+## Architecture
 The solution implements a Medallion Architecture pattern leveraging key Azure services. Data flows through distinct layers as depicted below:
 
-+---------------------+      +-----------------------------------+      +-----------------------------------+
-|                     |      | Azure Data Lake Storage Gen2      |      | Azure Data Factory                |
-|  Raw Sales Data     |      | (Bronze Layer - Raw CSV)        +----->+ (Data Flow: Bronze to Silver)   +
-|  (Local Python)     |      |                                   |      |                                   |
-+----------+----------+      +-----------------------------------+      +-----------------------------------+
-           |                                                                                             |
-           | Ingest (CSV)                                                                                V
-           V                                                               +-----------------------------------+
-+---------------------+      +-----------------------------------+      | Azure Data Lake Storage Gen2      |
-|                     |      | Azure Data Factory                |      | (Silver Layer - Cleaned Parquet)  |
-|  Azure Data Lake    |      | (Data Flow: Silver to Gold)     +<-----+                                   |
-|  Storage Gen2       |      |                                   |      +-----------------------------------+
-|  (Bronze Layer)     |      +-----------------------------------+                                        |
-|  salesdata/bronze/  |                                                                                   |
-+----------+----------+                                                                                    V
-                                                                                                         +---------------------+
-                                                                                                         |                     |
-                                                                                                         |  Azure Data Lake    |
-                                                                                                         |  Storage Gen2       |
-                                                                                                         |  (Gold Layer)       |
-                                                                                                         |  salesdata/gold/    |
-                                                                                                         +----------+----------+
-                                                                                                                    |
-                                                                                                                    | Query via Views
-                                                                                                                    V
-                                                                                                         +---------------------+
-                                                                                                         |                     |
-                                                                                                         |  Azure Synapse      |
-                                                                                                         |  Analytics          |
-                                                                                                         |  (Serverless SQL    |
-                                                                                                         |  Pool - Views)      |
-                                                                                                         +----------+----------+
-                                                                                                                    |
-                                                                                                                    | DirectQuery
-                                                                                                                    V
-                                                                                                         +---------------------+
-                                                                                                         |                     |
-                                                                                                         |  Power BI           |
-                                                                                                         |  (Dashboard &       |
-                                                                                                         |  Reporting)         |
-                                                                                                         |                     |
-                                                                                                         +---------------------+
+graph TD
+    subgraph Data Source
+        A[Retail Sales Data Source]
+    end
 
+    subgraph Orchestration & Processing
+        B[Azure Data Factory]
+    end
 
-Explanation of Components and Data Flow:
+    subgraph "Data Storage (Azure Data Lake Storage Gen2)"
+        C("Bronze Zone<br><i>(Raw Data)</i>")
+        D("Silver Zone<br><i>(Cleaned Data)</i>")
+        E("Gold Zone<br><i>(Aggregated Data)</i>")
+    end
+
+    subgraph Business Intelligence
+        F[Power BI]
+    end
+
+    subgraph Development & Version Control
+        G[Git Repository]
+    end
+
+    A -- "Ingests Data" --> B;
+    B -- "Orchestrates Storage into" --> C;
+    C -- "Transforms Data via ADF" --> D;
+    D -- "Aggregates Data via ADF" --> E;
+    E -- "Consumes for Reporting" --> F;
+
+    G -- "Manages ADF & Pipeline Code" --> B;
+
+    %% --- Styling for Professional Look ---
+    classDef source fill:#DDFFAA,stroke:#333,stroke-width:2px;
+    classDef orchestrator fill:#ADD8E6,stroke:#333,stroke-width:2px;
+    classDef storage fill:#FFFACD,stroke:#333,stroke-width:2px;
+    classDef bi fill:#DA70D6,stroke:#333,stroke-width:2px;
+    classDef devops fill:#C0C0C0,stroke:#333,stroke-width:2px;
+
+    class A source;
+    class B orchestrator;
+    class C,D,E storage;
+    class F bi;
+    class G devops;
+
+## 
+Medallion Architecture Diagram
+The data lake is structured into three distinct layers, progressively refining data quality:
+
++---------------------+      +---------------------+      +---------------------+
+|                     |      |                     |      |                     |
+|  Bronze Layer       |      |  Silver Layer       |      |  Gold Layer         |
+|  (Raw, Immutable)   +----->+  (Cleaned, Conformed)+----->+  (Aggregated,       |
+|  salesdata/bronze/  |      |  salesdata/silver/  |      |  Business-Ready)    |
++---------------------+      +---------------------+      |  salesdata/gold/    |
+                                                           +---------------------+
+
+## Explanation of Components and Data Flow:
 Raw Sales Data (Local Python):
 
 Role: The starting point of the pipeline. A Python script generates synthetic raw sales data in CSV format.
@@ -113,7 +125,7 @@ This architecture demonstrates a modern data lakehouse approach, combining the s
 Azure Services Used
 Azure Data Lake Storage Gen2 (ADLS Gen2): Scalable and secure data lake for storing data in various formats across all layers (Bronze, Silver, Gold).
 
-Azure Data Factory (ADF): Cloud-based ETL/ELT service used for orchestrating the data movement and performing complex data transformations via Mapping Data Flows.
+Azure Data Factory (ADF):: Cloud-based ETL/ELT service used for orchestrating the data movement and performing complex data transformations via Mapping Data Flows.
 
 Azure Synapse Analytics (Serverless SQL Pool): Provides a SQL interface over the data in ADLS Gen2, enabling ad-hoc querying and creating logical views (Gold Layer) without provisioning dedicated resources.
 
@@ -295,7 +307,7 @@ In Synapse Studio, go to the Develop hub (paper icon).
 
 Click + > **SQL script`.
 
-Ensure connected to Built-in (serverless).
+Ensure connected to Built-in (serververless).
 
 Run: CREATE DATABASE retail_analytics_db;
 
