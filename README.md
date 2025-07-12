@@ -5,11 +5,11 @@ An end-to-end Retail Sales Analytics project built on Azure, showcasing modern d
 This project demonstrates how raw retail sales data can be ingested, transformed, analyzed, and visualized using a scalable cloud-based architecture.
 
 ---
-## 🏗 Architecture Diagram
+#  🏗 Architecture Diagram
 
 <img width="322" height="446" alt="image" src="https://github.com/user-attachments/assets/5dfebc22-563b-4394-820e-9e4a5a88444e" />
 
-## 🚀 Project Architecture
+# 🚀 Project Architecture
 
 ```mermaid
 graph TD
@@ -19,7 +19,7 @@ graph TD
     D --> E[Power BI Reports]
 ```
 
-🧱 Tech Stack
+# 🧱 Tech Stack
 ```
 Component	Technology
 Language	Python
@@ -29,7 +29,7 @@ Data Processing	Azure Synapse Analytics
 Visualization	Power BI
 ```
 
-📂 Project Structure
+# 📂 Project Structure
 ```
 retail-sales_analytics/
 │
@@ -42,8 +42,8 @@ retail-sales_analytics/
 └── architecture.png           # Architecture Diagram
 ```
 
-## 📈 Business Use Case
-Objective: Analyze retail sales data to uncover trends, high-performing regions/products, and forecast revenue.
+# 📈 Business Use Case
+** Objective: Analyze retail sales data to uncover trends, high-performing regions/products, and forecast revenue.
 
 Data Source: Retail transactions CSV file (uploaded manually or automated).
 
